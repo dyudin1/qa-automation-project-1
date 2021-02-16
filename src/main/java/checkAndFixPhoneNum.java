@@ -1,8 +1,8 @@
 public class checkAndFixPhoneNum {
     public static void main(String[] args) {
 //        String phoneNum = "+7 (999) 636 44 33";
-        String phoneNum = "+7 (999) 636 44 313";
-//        String phoneNum = "89996364433";
+//        String phoneNum = "+7 (999) 636 44 313";
+        String phoneNum = "89996364433";
         String fixedPhoneNum = phoneNum;
         boolean isSpacesRemoved = !phoneNum.equals(phoneNum.replaceAll(" ", ""));
         boolean isBracketsRemoved = !phoneNum.equals(phoneNum.replaceAll("\\(|\\)", ""));
@@ -31,12 +31,10 @@ public class checkAndFixPhoneNum {
             fixesList = fixesList + "Исправлен формат; ";
         }
         if (fixesList.equals("")){
-            fixesList = fixesList + "Изменений не было";
+            fixesList = fixesList + "Исправлений не было";
         }
 
 
         System.out.println(fixesList);
-        System.out.println("1st is " + phoneNum + " 2nd is " + fixedPhoneNum);
-        System.out.println("isSpacesRemoved = " + isSpacesRemoved + " isBracketsRemoved = " + isBracketsRemoved + " isFormatFixed = " + isFormatFixed);
-    }
+        }
 }
