@@ -1,4 +1,4 @@
-public class checkAndFixPhoneNum {
+public class СheckAndFixPhoneNum {
     public static void main(String[] args) {
 //        String phoneNum = "+7 (999) 636 44 33";
 //        String phoneNum = "+7 (999) 636 44 313";
