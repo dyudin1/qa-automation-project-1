@@ -14,10 +14,10 @@ public class Main {
 //        System.out.println(Arrays.asList(fixNumber("89996364433")));
 
         //Проверка сортировки
-        int[] notSortedArray = {97, 25, 42, 90, 71, 16, 82, 39, 36, 74};
-        int[] notSortedArray2 = {35, 11, 92, 13, 54, 72, 65, 91, 10, 5, 24, 64, 6};
-        System.out.println(Arrays.toString(sortByHalves(notSortedArray)));
-        System.out.println(Arrays.toString(sortByHalves(notSortedArray2)));
+//        int[] notSortedArray = {97, 25, 42, 90, 71, 16, 82, 39, 36, 74};
+//        int[] notSortedArray2 = {35, 11, 92, 13, 54, 72, 65, 91, 10, 5, 24, 64, 6};
+//        System.out.println(Arrays.toString(sortByHalves(notSortedArray)));
+//        System.out.println(Arrays.toString(sortByHalves(notSortedArray2)));
 
     }
 }
