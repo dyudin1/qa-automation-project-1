@@ -9,7 +9,7 @@ public class ThanosSort {
 
         if (notSortedArray.length > 2) {
 
-            notSortedArray = sortArray(notSortedArray);
+            notSortedArray = trySortArray(notSortedArray);
 
             int cache = 0;
             for (int j : notSortedArray) {
@@ -37,10 +37,10 @@ public class ThanosSort {
             return sortedArray;
         }
 
-        return sortArray(notSortedArray);
+        return trySortArray(notSortedArray);
     }
 
-    static int[] sortArray(int[] notSortedArray) {
+    static int[] trySortArray(int[] notSortedArray) {
 
         if (notSortedArray.length < 2) {
             return notSortedArray;
