@@ -31,8 +31,7 @@ public class ArraysSortTest {
     @Test
     public void equalsTest() {
         int[] testArray = {3, 3, 3, 3, 0, 0, 0, 0, 1, 1};
-        int[] testArraySorted = Arrays.copyOf(testArray, testArray.length);
-        Arrays.sort(testArraySorted);
+        int[] testArraySorted = {0, 0, 0, 0, 1, 1, 3, 3, 3, 3};
         Assertions.assertArrayEquals(testArraySorted, sortByHalves(testArray));
     }
 
