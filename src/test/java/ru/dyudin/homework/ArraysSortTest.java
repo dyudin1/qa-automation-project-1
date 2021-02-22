@@ -25,7 +25,6 @@ public class ArraysSortTest {
     public void meanNumSortTest() {
         int[] testArray = {7777, 1111, 1, 9999}; //Среднее 4722
         int[] testArraySorted = {1111, 1, 9999, 7777};
-        Arrays.sort(testArraySorted);
         Assertions.assertArrayEquals(testArraySorted, trySortArray(testArray));
     }
 
