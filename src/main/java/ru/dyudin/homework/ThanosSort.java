@@ -27,8 +27,8 @@ public class ThanosSort {
             int[] cacheSecondHalf = Arrays.copyOfRange(notSortedArray, leftHalf, notSortedArray.length);
 
 
-            System.out.println("FirstHalf = " + Arrays.toString(cacheFirstHalf) + " SecondHalf = "
-                    + Arrays.toString(cacheSecondHalf) + "\n");
+//            System.out.println("FirstHalf = " + Arrays.toString(cacheFirstHalf) + " SecondHalf = "
+//                    + Arrays.toString(cacheSecondHalf) + "\n");
 
             System.arraycopy(sortByHalves(cacheFirstHalf), 0, sortedArray, 0, cacheFirstHalf.length);
             System.arraycopy(sortByHalves(cacheSecondHalf), 0, sortedArray,
@@ -64,7 +64,7 @@ public class ThanosSort {
             }
         }
 
-        System.out.println("Array sorted, result =" + Arrays.toString(sortedArray));
+//        System.out.println("Array sorted, result =" + Arrays.toString(sortedArray));
 
         return sortedArray;
     }
