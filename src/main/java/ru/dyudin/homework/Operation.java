@@ -27,8 +27,20 @@ public class Operation {
 
             String operator = split[1];
             Operation xyz = new Operation();
-            xyz.num1 = Integer.parseInt((split[0]));
-            xyz.num2 = Integer.parseInt(split[2]);
+
+            try {
+                xyz.num1 = Integer.parseInt((split[0]));
+            } catch (Exception e) {
+                System.out.println(e);
+                break;
+            }
+
+            try {
+                xyz.num2 = Integer.parseInt(split[2]);
+            } catch (Exception e) {
+                System.out.println(e);
+                break;
+            }
 
             switch (operator) {
                 case "+":
