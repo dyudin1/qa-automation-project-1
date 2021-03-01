@@ -18,7 +18,7 @@ public class ThanosSort {
             double meanNum = (double) cache / notSortedArray.length;
             int leftHalf = 0;
             for (int l : notSortedArray) {
-                if (l < meanNum) {
+                if (l <= meanNum) {
                     leftHalf++;
                 }
             }
@@ -26,11 +26,9 @@ public class ThanosSort {
             int[] cacheFirstHalf = Arrays.copyOfRange(notSortedArray, 0, leftHalf);
             int[] cacheSecondHalf = Arrays.copyOfRange(notSortedArray, leftHalf, notSortedArray.length);
 
-
-//            System.out.println("FirstHalf = " + Arrays.toString(cacheFirstHalf) + " SecondHalf = "
-//                    + Arrays.toString(cacheSecondHalf) + "\n");
-
-            System.arraycopy(sortByHalves(cacheFirstHalf), 0, sortedArray, 0, cacheFirstHalf.length);
+            if (sortedArray.length - cacheFirstHalf.length > 0) {
+                System.arraycopy(sortByHalves(cacheFirstHalf), 0, sortedArray, 0, cacheFirstHalf.length);
+            }
             if (sortedArray.length - cacheSecondHalf.length > 0) {
                 System.arraycopy(sortByHalves(cacheSecondHalf), 0, sortedArray,
                         sortedArray.length - cacheSecondHalf.length, cacheSecondHalf.length);
@@ -65,8 +63,6 @@ public class ThanosSort {
                 sortedArray[y--] = j;
             }
         }
-
-//        System.out.println("Array sorted, result =" + Arrays.toString(sortedArray));
 
         return sortedArray;
     }
