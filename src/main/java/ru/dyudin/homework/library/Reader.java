@@ -5,6 +5,10 @@ import java.util.Random;
 
 public class Reader {
 
+    public static void main(String[] args) {
+        new Reader().executeReader();
+    }
+
     public void executeReader() {
         Reader reader = new Reader();
         Book chosenBook = reader.choiceBook(reader.books);
@@ -20,7 +24,7 @@ public class Reader {
 
     //Should be chooseBook
     private Book choiceBook(Book[] books) {
-        return books[new Random().nextInt(books.length - 1)];
+        return books[new Random().nextInt(books.length)];
     }
 
     private void readBook(Book book) {
