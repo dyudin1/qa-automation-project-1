@@ -7,7 +7,7 @@ public class Reader {
 
     public void executeReader() {
         Reader reader = new Reader();
-        Book chosenBook = reader.chooseBook(reader.books);
+        Book chosenBook = reader.choiceBook(reader.books);
         reader.readBook(chosenBook);
         reader.rateBook(chosenBook);
     }
@@ -18,7 +18,8 @@ public class Reader {
     Book oldBook = new Book("oldTitle", "namelessAuthor", 500);
     Book[] books = new Book[]{book1, multipartBook1, multipartBook2, oldBook};
 
-    private Book chooseBook(Book[] books) {
+    //Should be chooseBook
+    private Book choiceBook(Book[] books) {
         return books[new Random().nextInt(books.length - 1)];
     }
 
@@ -27,7 +28,13 @@ public class Reader {
     }
 
     private int rateBook(Book book) {
-        int rating = book.name.length() + book.author.length() - book.part + book.pages;
+        int[] bookParams = {book.name.length(), book.author.length(), book.part, book.pages};
+        for (int i : bookParams) {
+            if (i == 0) {
+                bookParams[i] = new Random().nextInt(1000);
+            }
+        }
+        int rating = bookParams[0] + bookParams[1] - bookParams[2] + bookParams[3];
         System.out.println("Book " + book.name + " rated for " + rating);
         return rating;
     }
