@@ -1,11 +1,11 @@
 package ru.dyudin.homework;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Operation {
 
-    public static void main(String[] args) {
-
+    public void executeOperation() {
         System.out.println("Type \"stop\" to exit");
 
         while (true) {
@@ -14,7 +14,7 @@ public class Operation {
             Scanner input = new Scanner(System.in);
             String expression = input.nextLine().strip();
 
-            if (expression.equals("stop")) {
+            if (expression.toLowerCase(Locale.ROOT).equals("stop")) {
                 break;
             }
 
