@@ -6,16 +6,22 @@ public class Book {
     int part;
     int pages;
 
-    Book(String name, String author, int pages, int part) {
+    public Book(String name, String author, int pages, int part) {
         this.name = name;
         this.author = author;
         this.part = part;
         this.pages = pages;
     }
 
-    Book(String name, String author, int pages) {
+    public Book(String name, String author, int pages) {
         this.name = name;
         this.author = author;
+        this.pages = pages;
+    }
+
+    public Book(String name, int pages) {
+        this.name = name;
+        this.author = "";
         this.pages = pages;
     }
 
