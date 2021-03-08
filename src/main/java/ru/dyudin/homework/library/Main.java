@@ -1,9 +1,4 @@
-package ru.dyudin.homework;
-
-import ru.dyudin.homework.library.Book;
-import ru.dyudin.homework.library.Reader;
-
-import java.util.Arrays;
+package ru.dyudin.homework.library;
 
 public class Main {
     public static void main(String[] args) {

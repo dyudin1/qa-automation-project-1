@@ -2,7 +2,7 @@ package ru.dyudin.homework;
 
 import org.junit.jupiter.api.*;
 import java.util.Arrays;
-import static ru.dyudin.homework.ThanosSort.*;
+import static ru.dyudin.homework.sorting.ThanosSort.*;
 
 public class ArraysSortTest {
 

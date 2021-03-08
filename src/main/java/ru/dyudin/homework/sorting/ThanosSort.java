@@ -1,10 +1,10 @@
-package ru.dyudin.homework;
+package ru.dyudin.homework.sorting;
 
 import java.util.Arrays;
 
 public class ThanosSort {
 
-    static int[] sortByHalves(int[] notSortedArray) {
+    public static int[] sortByHalves(int[] notSortedArray) {
         int[] sortedArray = Arrays.copyOf(notSortedArray, notSortedArray.length);
 
         if (notSortedArray.length > 2) {
@@ -40,7 +40,7 @@ public class ThanosSort {
         return trySortArray(notSortedArray);
     }
 
-    static int[] trySortArray(int[] notSortedArray) {
+    public static int[] trySortArray(int[] notSortedArray) {
 
         if (notSortedArray.length < 2) {
             return notSortedArray;

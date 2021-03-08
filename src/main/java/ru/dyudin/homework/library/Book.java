@@ -27,11 +27,10 @@ public class Book {
 
     @Override
     public String toString() {
-        if (part != 0) {
-            return "Book: " + this.name + ", author: " + this.author + ", part " + this.part
-                    + ", " + this.pages + " pages.";
-        }
-        return "Book: " + this.name + ", author: " + this.author + ", " + this.pages + " pages.";
+        return "Book: " + this.name +
+        (this.author.equals("") ? "" : ", author: " + this.author) +
+        (this.part == 0 ? "" : ", part " + this.part)
+        + ", " + this.pages + " pages.";
     }
 
 }

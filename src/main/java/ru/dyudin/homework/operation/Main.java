@@ -1,11 +1,10 @@
-package ru.dyudin.homework;
+package ru.dyudin.homework.operation;
 
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Operation {
-
-    public void executeOperation() {
+public class Main {
+    public static void main(String[] args) {
         System.out.println("Type \"stop\" to exit");
 
         while (true) {
@@ -44,16 +43,16 @@ public class Operation {
 
             switch (operator) {
                 case "+":
-                    System.out.println("Result is " + new Plus().execute(xyz.num1, xyz.num2));
+                    System.out.println("Result is " + new Operation.Plus().execute(xyz.num1, xyz.num2));
                     break;
                 case "-":
-                    System.out.println("Result is " + new Minus().execute(xyz.num1, xyz.num2));
+                    System.out.println("Result is " + new Operation.Minus().execute(xyz.num1, xyz.num2));
                     break;
                 case "*":
-                    System.out.println("Result is " + new Multiply().execute(xyz.num1, xyz.num2));
+                    System.out.println("Result is " + new Operation.Multiply().execute(xyz.num1, xyz.num2));
                     break;
                 case "/":
-                    System.out.println("Result is " + new Divide().execute(xyz.num1, xyz.num2));
+                    System.out.println("Result is " + new Operation.Divide().execute(xyz.num1, xyz.num2));
                     break;
                 default:
                     System.out.println(new Operation().execute(xyz.num1, xyz.num2));
@@ -61,48 +60,5 @@ public class Operation {
             }
 
         }
-    }
-
-    String execute(int num1, int num2) {
-        return "Not supported";
-    }
-
-    int num1;
-    int num2;
-
-    static class Plus extends Operation {
-
-        @Override
-        String execute(int num1, int num2) {
-            return String.valueOf(num1 + num2);
-        }
-
-    }
-
-    static class Minus extends Operation {
-
-        @Override
-        String execute(int num1, int num2) {
-            return String.valueOf(num1 - num2);
-        }
-
-    }
-
-    static class Divide extends Operation {
-
-        @Override
-        String execute(int num1, int num2) {
-            return String.valueOf((double) num1 / num2);
-        }
-
-    }
-
-    static class Multiply extends Operation {
-
-        @Override
-        String execute(int num1, int num2) {
-            return String.valueOf(num1 * num2);
-        }
-
     }
 }
