@@ -2,8 +2,8 @@ package ru.dyudin.homework.fight;
 
 public class RangedWarrior extends Warrior implements WarriorRangedType {
     @Override
-    void setSpecialty() {
-        this.specialty = "Ranged warrior";
+    String setSpecialty() {
+        return "Ranged warrior";
     }
 
     @Override

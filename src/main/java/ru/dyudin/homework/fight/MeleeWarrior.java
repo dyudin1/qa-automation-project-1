@@ -2,8 +2,8 @@ package ru.dyudin.homework.fight;
 
 public class MeleeWarrior extends Warrior implements WarriorMeleeType {
     @Override
-    void setSpecialty() {
-        this.specialty = "Melee warrior";
+    String setSpecialty() {
+        return "Melee warrior";
     }
 
     @Override
