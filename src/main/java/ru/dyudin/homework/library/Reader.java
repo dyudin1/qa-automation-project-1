@@ -22,7 +22,7 @@ public class Reader {
             }
         }
         int rating = bookParams[0] + bookParams[1] - bookParams[2] + bookParams[3] - ratingPenalty;
-        System.out.println("Book " + book.name + " rated for " + rating);
+        System.out.println("Book " + book.name + " rated for " + rating + (ratingPenalty != 0 ? ", rating penalty is " + ratingPenalty : ""));
         return rating;
     }
 }
