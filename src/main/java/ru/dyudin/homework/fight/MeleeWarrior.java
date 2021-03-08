@@ -2,6 +2,11 @@ package ru.dyudin.homework.fight;
 
 public class MeleeWarrior extends Warrior implements WarriorMeleeType {
     @Override
+    void setSpecialty() {
+        this.specialty = "Melee warrior";
+    }
+
+    @Override
     void run() {
         System.out.println(getName() + " runs slowly");
     }

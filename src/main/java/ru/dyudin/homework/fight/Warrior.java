@@ -2,11 +2,9 @@ package ru.dyudin.homework.fight;
 
 public abstract class Warrior {
     private String name;
-    private String specialty;
+    protected String specialty;
 
-    void setSpecialty(String specialty) {
-        this.specialty = specialty;
-    }
+    abstract void setSpecialty();
 
     void setName(String name) {
         this.name = name;
