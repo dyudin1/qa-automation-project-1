@@ -1,5 +1,6 @@
 package ru.dyudin.homework.countries;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -17,15 +18,17 @@ public class Main {
             throw new NullPointerException("Input expected");
         }
 
+        Country country;
+
         try {
-            Country.valueOf(input);
+            country = Country.valueOf(input.toUpperCase(Locale.ROOT));
         } catch (IllegalArgumentException e) {
             System.out.println("Country code not found");
-            Country.getByName(input);
+            country = Country.getByName(input);
         }
 
-        System.out.println("Country " + Country.getByName(input).getEnName()
-                + ((Country.getByName(input).getIsOpen()) ? " is opened" : " is closed"));
+        System.out.println("Country " + country.getEnName()
+                + ((country.getIsOpen()) ? " is opened" : " is closed"));
     }
 
 }
