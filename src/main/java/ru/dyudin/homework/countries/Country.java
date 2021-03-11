@@ -1,0 +1,47 @@
+package ru.dyudin.homework.countries;
+
+import java.util.Locale;
+
+public enum Country {
+    RU("Russia", true),
+    CA("Canada", false),
+    UK("United Kingdom", true);
+
+    private final String enName;
+    private final boolean isOpen;
+
+    protected String getEnName() {
+        return enName;
+    }
+
+    protected boolean getIsOpen() {
+        return isOpen;
+    }
+
+    Country(final String enName, final boolean isOpen) {
+        this.enName = enName;
+        this.isOpen = isOpen;
+    }
+
+    @Override
+    public String toString() {
+        return "Country " + enName
+                + "(" + this.name() + ")";
+    }
+
+    static Country getByName(final String countryName) throws NoSuchCountryException {
+
+        for (Country i : Country.values()) {
+            if (countryName.toLowerCase(Locale.ROOT).equals(i.enName.toLowerCase(Locale.ROOT))) {
+                return i;
+            }
+        }
+        throw new NoSuchCountryException("Country " + countryName + " not found");
+    }
+
+    static class NoSuchCountryException extends Exception {
+        protected NoSuchCountryException(final String e) {
+            super(e);
+        }
+    }
+}
