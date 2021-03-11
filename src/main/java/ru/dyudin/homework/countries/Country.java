@@ -8,11 +8,11 @@ public enum Country {
     private final String enName;
     private final boolean isOpen;
 
-    protected String getEnName() {
+    String getEnName() {
         return enName;
     }
 
-    protected boolean getIsOpen() {
+    boolean getIsOpen() {
         return isOpen;
     }
 
