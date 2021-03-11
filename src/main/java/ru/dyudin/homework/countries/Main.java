@@ -21,7 +21,7 @@ public class Main {
         Country country;
 
         try {
-            country = Country.valueOf(input.toUpperCase(Locale.ROOT));
+            country = Country.valueOf(input.toUpperCase());
         } catch (IllegalArgumentException e) {
             System.out.println("Country code not found");
             country = Country.getByName(input);

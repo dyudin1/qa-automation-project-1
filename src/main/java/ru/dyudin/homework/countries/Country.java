@@ -1,7 +1,5 @@
 package ru.dyudin.homework.countries;
 
-import java.util.Locale;
-
 public enum Country {
     RU("Russia", true),
     CA("Canada", false),
@@ -32,7 +30,7 @@ public enum Country {
     static Country getByName(final String countryName) throws NoSuchCountryException {
 
         for (Country i : Country.values()) {
-            if (countryName.toLowerCase(Locale.ROOT).equals(i.enName.toLowerCase(Locale.ROOT))) {
+            if (countryName.equalsIgnoreCase(i.enName)) {
                 return i;
             }
         }
