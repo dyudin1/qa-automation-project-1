@@ -1,5 +1,6 @@
 package ru.dyudin.homework.library;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 
@@ -18,7 +19,7 @@ public class Reader {
         int ratingPenalty = 0;
         for (int i : bookParams) {
             if (i == 0) {
-                ratingPenalty += new Random().nextInt();
+                ratingPenalty += new SecureRandom().nextInt();
             }
         }
         int rating = bookParams[0] + bookParams[1] - bookParams[2] + bookParams[3] - ratingPenalty;

@@ -36,10 +36,4 @@ public enum Country {
         }
         throw new NoSuchCountryException("Country " + countryName + " not found");
     }
-
-    static class NoSuchCountryException extends Exception {
-        protected NoSuchCountryException(final String e) {
-            super(e);
-        }
-    }
 }
