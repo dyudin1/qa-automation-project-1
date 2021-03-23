@@ -2,15 +2,17 @@ package ru.dyudin.homework.fruits;
 
 public class BoxUtil {
 
-    public static <T> void copyFromBoxToBox(Box<T> src, Box<T> dest) {
-        if (src != null) {
+    public static <T> void copyFromBoxToBox(Box<T> src, Box<? super T> dest) {
+        if (src.get() != null) {
             dest.put(src.get());
         }
     }
 
-    public static <T extends Fruit> void copyFreshFruitFromBoxToBox(Box<T> src, Box<T> dest) {
-        if (src.get().getFresh() && src != null) {
-            dest.put(src.get());
+    public static <T extends Fruit> void copyFreshFruitFromBoxToBox(Box<T> src, Box<? super T> dest) {
+        if (src.get() != null) {
+            if (src.get().getFresh()) {
+                dest.put(src.get());
+            }
         }
     }
 

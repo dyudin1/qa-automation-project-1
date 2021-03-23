@@ -8,12 +8,13 @@ import java.util.NoSuchElementException;
 public class MyCollection<E> implements Collection<E> {
 
     private int size;
+    private boolean isEmpty = false;
 
     private Object[] elementData = new Object[10];
 
     @Override
     public boolean add(E e) {
-        if (isEmpty) {
+        if (!isEmpty) {
             if (size == elementData.length) {
                 elementData = Arrays.copyOf(elementData, (int) (size * 1.5f));
             }
@@ -118,7 +119,6 @@ public class MyCollection<E> implements Collection<E> {
         return result;
     }
 
-    private boolean isEmpty = false;
 
     @Override
     public boolean isEmpty() {
