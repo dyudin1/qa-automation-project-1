@@ -9,17 +9,17 @@ public class Main {
 
     public static void main(String[] args) {
         final ArrayList<Boy> boys = new ArrayList<>() {{
-            add(new Boy("DНиколай", 68));
-            add(new Boy("EПётр", 53));
-            add(new Boy("BВасилий", 25));
-            add(new Boy("CМихаил", 19));
-            add(new Boy("AАлексей", 6));
-            add(new Boy("DНиколай", 86));
-            add(new Boy("EПётр", 35));
-            add(new Boy("CМихаил", 111));
-            add(new Boy("AАлексей", 22));
-            add(new Boy("CМихаил", 1));
-            add(new Boy("FЯков", 30));
+            add(new Boy("Николай", 68));
+            add(new Boy("Пётр", 53));
+            add(new Boy("Василий", 25));
+            add(new Boy("Михаил", 19));
+            add(new Boy("Алексей", 6));
+            add(new Boy("Николай", 86));
+            add(new Boy("Пётр", 35));
+            add(new Boy("Михаил", 111));
+            add(new Boy("Алексей", 22));
+            add(new Boy("Михаил", 1));
+            add(new Boy("Яков", 30));
         }};
 
         ArrayList<String> namesList = new ArrayList<>() {{
