@@ -8,21 +8,20 @@ import java.util.NoSuchElementException;
 public class MyCollection<E> implements Collection<E> {
 
     private int size;
-    private boolean isEmpty = false;
 
     private Object[] elementData = new Object[10];
 
     @Override
     public boolean add(E e) {
-        if (!isEmpty) {
+        if (size == 0) {
             if (size == elementData.length) {
                 elementData = Arrays.copyOf(elementData, (int) (size * 1.5f));
             }
             elementData[size++] = e;
             return true;
         }
-        elementData = Arrays.copyOf(elementData, 2);
-        size = 2;
+        elementData = Arrays.copyOf(elementData, 8);
+        elementData[size++] = e;
         return true;
     }
 
@@ -82,6 +81,7 @@ public class MyCollection<E> implements Collection<E> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean addAll(Collection<? extends E> c) {
         for (int i = 0; i < c.size(); i++) {
             add((E) c.toArray()[i]);
@@ -107,29 +107,34 @@ public class MyCollection<E> implements Collection<E> {
     @Override
     public boolean retainAll(Collection<?> c) {
         boolean result = false;
-        for (int a = 0; a < c.size(); a++) {
-            for (int i = 0; i < elementData.length; i++) {
-                if (!elementData[i].equals(c.toArray()[a])) {
-                    System.arraycopy(elementData, i + 1, elementData, i, size - i - 1);
-                    size--;
-                    result = true;
+        for (int a = 0; a < size; a++) {
+            boolean found = false;
+            for (int i = 0; i < c.toArray().length; i++) {
+                if (elementData[a].equals(c.toArray()[i])) {
+                    found = true;
+                    break;
                 }
+            }
+            if (!found) {
+                System.arraycopy(elementData, a + 1, elementData, a, size - a - 1);
+                size--;
+                a--;
+                result = true;
             }
         }
         return result;
     }
 
-
+        
     @Override
     public boolean isEmpty() {
-        return isEmpty;
+        return size == 0;
     }
 
     @Override
     public void clear() {
         elementData = Arrays.copyOf(elementData, 0);
         size = 0;
-        isEmpty = true;
     }
 
     private class MyIterator<T> implements Iterator<T> {
