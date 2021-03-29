@@ -36,18 +36,14 @@ public class Main {
         System.out.println(result.toString());
     }
 
-    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
-        Set<Object> seen = ConcurrentHashMap.newKeySet();
+    public static <T> Predicate<T> distinctByKey(final Function<? super T, ?> keyExtractor) {
+        final Set<Object> seen = ConcurrentHashMap.newKeySet();
         return t -> seen.add(keyExtractor.apply(t));
     }
 
-    private static Integer countDuplicates(String input, Object[] arrayInput) {
-        Integer duplicates = 0;
-        for (Object o : arrayInput) {
-            if (o.equals(input)) {
-                duplicates++;
-            }
-        }
-        return duplicates - 1;
+    private static Integer countDuplicates(final String input, final Object[] arrayInput) {
+        return (int) Arrays.stream(arrayInput)
+                .filter(x -> x.equals(input))
+                .count() - 1;
     }
 }

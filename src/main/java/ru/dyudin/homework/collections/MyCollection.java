@@ -1,10 +1,8 @@
 package ru.dyudin.homework.collections;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.*;
 
+@SuppressWarnings("NullableProblems")
 public class MyCollection<E> implements Collection<E> {
 
     private int size;
@@ -37,8 +35,9 @@ public class MyCollection<E> implements Collection<E> {
 
     @Override
     public boolean contains(Object o) {
-        for (Object i : elementData) {
-            if (i.equals(o)) {
+        for (int j = 0; j < size; j++) {
+            Object i = elementData[j];
+            if (Objects.equals(i, o)) {
                 return true;
             }
         }
@@ -51,14 +50,18 @@ public class MyCollection<E> implements Collection<E> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public <T> T[] toArray(T[] a) {
-        return Arrays.copyOf(a, size);
+        for (int j = 0; j < size; j++) {
+            a[j] = (T) elementData[j];
+        }
+        return a;
     }
 
     @Override
     public boolean remove(Object o) {
         for (int i = 0; i < elementData.length; i++) {
-            if (elementData[i].equals(o)) {
+            if (Objects.equals(elementData[i], o)) {
                 System.arraycopy(elementData, i + 1, elementData, i, size - i - 1);
                 size--;
                 return true;
@@ -68,11 +71,14 @@ public class MyCollection<E> implements Collection<E> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean containsAll(Collection<?> c) {
         int cache = 0;
+        MyCollection objectsCache = new MyCollection();
         for (int a = 0; a < c.size(); a++) {
             for (Object i : elementData) {
-                if (i.equals(c.toArray()[a])) {
+                if (Objects.equals(i, c.toArray()[a]) && !objectsCache.contains(i)) {
+                    objectsCache.add(i);
                     cache++;
                 }
             }
@@ -94,8 +100,8 @@ public class MyCollection<E> implements Collection<E> {
         boolean result = false;
         for (int a = 0; a < c.size(); a++) {
             for (int i = 0; i < elementData.length; i++) {
-                if (elementData[i].equals(c.toArray()[a])) {
-                    System.arraycopy(elementData, i + 1, elementData, i, size - i - 1);
+                if (Objects.equals(elementData[i], c.toArray()[a])) {
+                    System.arraycopy(elementData, i + 1, elementData, i, elementData.length - i - 1);
                     size--;
                     result = true;
                 }
@@ -110,7 +116,7 @@ public class MyCollection<E> implements Collection<E> {
         for (int a = 0; a < size; a++) {
             boolean found = false;
             for (int i = 0; i < c.toArray().length; i++) {
-                if (elementData[a].equals(c.toArray()[i])) {
+                if (Objects.equals(elementData[a], c.toArray()[i])) {
                     found = true;
                     break;
                 }
@@ -125,7 +131,7 @@ public class MyCollection<E> implements Collection<E> {
         return result;
     }
 
-        
+
     @Override
     public boolean isEmpty() {
         return size == 0;
@@ -163,8 +169,9 @@ public class MyCollection<E> implements Collection<E> {
             if (!cache) {
                 throw new IllegalStateException("No such element");
             }
-            System.arraycopy(elementData, cursor + 1, elementData, cursor, size - cursor - 1);
+            System.arraycopy(elementData, cursor, elementData, cursor - 1, elementData.length - cursor);
             size--;
+            cursor--;
             cache = false;
         }
     }
