@@ -1,4 +1,4 @@
-package ru.dyudin.homework;
+package ru.dyudin.homework.sorting;
 
 import java.util.Arrays;
 
